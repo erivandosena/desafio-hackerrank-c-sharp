@@ -21,28 +21,28 @@ namespace Solution
         */
         private static List<int> obtemCalculo(int maxDigit)
         {
-            List<int> lista = new List<int>(1);
+            List<int> listagem = new List<int>(1);
             
             for (int novoNumero = 1000; novoNumero <= 7770; novoNumero++)
             {
-                string numeroGeradoString = novoNumero.ToString();
-                List<int> digitosDoNumeroGerado = new List<int>(4);
+                string numeroObtido = novoNumero.ToString();
+                List<int> digitosNumeroObtido = new List<int>(4);
 
                 for (int y = 0; y < novoNumero.ToString().Length; y++)
-                    digitosDoNumeroGerado.Add(Convert.ToInt32(numeroGeradoString.Substring(y, 1)));
+                    digitosNumeroObtido.Add(Convert.ToInt32(numeroObtido.Substring(y, 1)));
 
-                if (digitosDoNumeroGerado.Max() > maxDigit)
+                if (digitosNumeroObtido.Max() > maxDigit)
                     continue;
 
                 int soma = 0;
                 for (int n = 0; n < novoNumero.ToString().Length; n++)
-                    soma += Convert.ToInt32(numeroGeradoString.Substring(n, 1));
+                    soma += Convert.ToInt32(numeroObtido.Substring(n, 1));
 
                 if (soma == 21)
-                    lista.Add(novoNumero);
+                    listagem.Add(novoNumero);
             }
 
-            return lista.Any() ? lista : null;
+            return listagem.Any() ? listagem : null;
         }
     }
 }
